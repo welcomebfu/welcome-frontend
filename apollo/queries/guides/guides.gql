@@ -1,0 +1,18 @@
+query Guides {
+  guides {
+    data {
+      id
+      attributes {
+        title
+        coverImage {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        shortDescription
+      }
+    }
+  }
+}

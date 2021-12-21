@@ -1,0 +1,11 @@
+body {
+  font-family: "Open Sans";
+  background-image: url('@/assets/img/pattern.png');
+  color: #2c3e50;
+}
+
+h1 {
+  text-align: center;
+  margin: 40px 0 80px;
+  font-size: 36px;
+}
