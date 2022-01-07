@@ -64,8 +64,8 @@ export default {
 <style>
 .accordion__item {
   cursor: pointer;
-  padding: 10px 20px 10px 40px;
-  border-bottom: 1px solid #ebebeb;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 4px solid #ebebeb;
   position: relative;
 }
 
@@ -88,10 +88,17 @@ export default {
 }
 
 .accordion__content {
-  padding: 40px;
+  text-align: justify;
+  padding: 20px;
 }
 
 .accordion__content img{
   max-width: 100%;
+}
+
+@media (max-width: 500px) {
+  .accordion__content {
+    padding: 5px;
+  }
 }
 </style>

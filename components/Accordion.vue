@@ -24,11 +24,13 @@ export default {
 <style scoped>
 .accordion {
   background-color: #00B4D8;
+  border-radius: 8px;
+  overflow: hidden;
   color: #fff;
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
 }
 .accordion__item:last-child {

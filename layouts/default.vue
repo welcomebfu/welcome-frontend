@@ -4,6 +4,7 @@
       :page="$nuxt.$route.path"
     />
     <Nuxt class="content" />
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ export default {
 
 <style>
 .content {
+  width: 100%;
   padding-top: 60px;
 }
 </style>

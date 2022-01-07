@@ -1,25 +1,31 @@
 <template>
   <div>
     <h1>Маршруты по Калининграду</h1>
-    <div class="container">
+    <div class="list">
+      <div v-if="$fetchState.pending" class="loading">
+        <DiamondLoading />
+      </div>
       <Card
-        v-for="guide in getGuides"
+        v-for="guide in guides"
         :key="guide.id"
-        :guide="guide.attributes"
         :id="guide.id"
+        :guide="guide.attributes"
+        v-else
       />
     </div>
   </div>
 </template>
 
 <script>
-import guidesQuery from '~/apollo/queries/guides/guides.gql'
-
 export default {
   data () {
     return {
       guides: []
     }
+  },
+  async fetch () {
+    const res = await this.$strapi.$guides.find({ populate: '*' })
+    this.guides = res.data
   },
   computed: {
     getGuides () {
@@ -31,18 +37,12 @@ export default {
       const randId = Math.round(Math.random() * this.guides.data.length)
       this.$router.push('/kaliningrad/' + randId)
     }
-  },
-  apollo: {
-    guides: {
-      prefetch: true,
-      query: guidesQuery
-    }
   }
 }
 </script>
 
 <style scoped>
-.container {
+.list {
   margin: 0 auto;
   width: 1000px;
   display: grid;
@@ -50,5 +50,19 @@ export default {
   justify-items: center;
   align-items: center;
   gap: 40px 20px;
+}
+
+@media (max-width: 1000px) {
+  .list {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 730px) {
+  .list {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
 }
 </style>

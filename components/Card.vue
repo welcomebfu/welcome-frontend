@@ -19,12 +19,13 @@ export default {
   props: ['guide', 'id'],
   computed: {
     getImage () {
-      return 'http://localhost:1337' + this.guide.coverImage.data.attributes.url
+      return this.guide.coverImage.data.attributes.url
     }
   },
   methods: {
     openGuide (id) {
       this.$router.push('/kaliningrad/' + id)
+      console.log(this.guide)
     }
   }
 }

@@ -1,16 +1,27 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'frontend',
+    title: 'Welcome маршруты',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: 'Маршруты от Welcome центра БФУ им.Канта' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'theme-color', content: '#00b4d8' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  loading: {
+    color: 'white',
+    height: '5px'
+  },
+
+  server: {
+    port: 80, // default: 3000
+    host: '0.0.0.0', // default: localhost,
+    timing: false
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -30,8 +41,25 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    'nuxt-compress',
+    '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/fontawesome'
   ],
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      brands: ['faVk', 'faInstagram', 'faTiktok']
+    }
+  },
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: true,
+    webp: {
+      preset: 'default',
+      quality: 75,
+    },
+  },
   googleFonts: {
     prefetch: true,
     families: {
@@ -39,21 +67,19 @@ export default {
     }
   },
 
+  strapi: {
+    url: process.env.API_URL + 'api' || "http://localhost:1337",
+    entities: ['guides']
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/apollo'
+    '@nuxtjs/strapi'
   ],
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
-  },
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
-      }
-    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

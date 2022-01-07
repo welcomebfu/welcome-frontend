@@ -1,7 +1,15 @@
 <template>
-  <vs-navbar color="#00b4d8" text-white square center-collapsed fixed>
+  <vs-navbar
+  class="header"
+  color="#00b4d8"
+  text-white
+  square
+  center-collapsed
+  fixed>
     <template #left>
-      <span>Welcome</span>
+      <nuxt-link to="/" class="nav-link">
+        <span>Welcome</span>
+      </nuxt-link>
     </template>
     <vs-navbar-item id="kaliningrad" :active="page === '/kaliningrad'">
       <nuxt-link to="/kaliningrad" class="nav-link">
