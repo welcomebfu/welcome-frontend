@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Маршруты по области пока в разработке)</h1>
-    <nuxt-link to="/kaliningrad">
+    <nuxt-link to="/kaliningrad" class="link">
       Вернуться к маршрутам по Калининграду
     </nuxt-link>
   </div>
@@ -34,6 +34,11 @@ export default {
   justify-items: center;
   align-items: center;
   gap: 40px 20px;
+}
+
+.link {
+  color: black;
+  font-size: 18px;
 }
 
 @media (max-width: 1000px) {
