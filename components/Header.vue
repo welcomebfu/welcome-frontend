@@ -1,25 +1,22 @@
 <template>
   <vs-navbar
-  class="header"
-  color="#00b4d8"
-  text-white
-  square
-  center-collapsed
-  fixed>
+    class="header"
+    color="#00b4d8"
+    text-white
+    square
+    center-collapsed
+    fixed
+  >
     <template #left>
       <nuxt-link to="/" class="nav-link">
         <span>Welcome</span>
       </nuxt-link>
     </template>
-    <vs-navbar-item id="kaliningrad" :active="page === '/kaliningrad'">
-      <nuxt-link to="/kaliningrad" class="nav-link">
-        По Калининграду
-      </nuxt-link>
+    <vs-navbar-item id="kaliningrad" to="/kaliningrad" :active="page.includes('/kaliningrad')">
+      По Калининграду
     </vs-navbar-item>
-    <vs-navbar-item id="oblast" :active="page === '/oblast'">
-      <nuxt-link to="/oblast" class="nav-link">
-        По области
-      </nuxt-link>
+    <vs-navbar-item id="oblast" to="/oblast" :active="page === '/oblast'">
+      По области
     </vs-navbar-item>
     <template #right>
       <vs-button color="#fff" border>

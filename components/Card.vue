@@ -25,7 +25,6 @@ export default {
   methods: {
     openGuide (id) {
       this.$router.push('/kaliningrad/' + id)
-      console.log(this.guide)
     }
   }
 }

@@ -4,26 +4,31 @@
       <li>
         <a class="social-link" target="_blank" href="https://vk.com/welcome_bfu">
           <fa
-          class="icon"
-          :icon="['fab','vk']" />
+            class="icon"
+            :icon="['fab','vk']"
+          />
         </a>
       </li>
       <li>
         <a class="social-link" target="_blank" href="https://www.instagram.com/welcomebfu/">
           <fa
-          class="icon"
-          :icon="['fab','instagram']" />
+            class="icon"
+            :icon="['fab','instagram']"
+          />
         </a>
       </li>
       <li>
         <a class="social-link" target="_blank" href="https://vk.com/welcome_bfu">
           <fa
-          class="icon"
-          :icon="['fab','tiktok']" />
+            class="icon"
+            :icon="['fab','tiktok']"
+          />
         </a>
       </li>
     </ul>
-    <p class="welcome"><span class="highlight">Welcome-центр</span> БФУ им.Канта</p>
+    <p class="welcome">
+      <span class="highlight">Welcome-центр</span> БФУ им.Канта
+    </p>
   </div>
 </template>
 

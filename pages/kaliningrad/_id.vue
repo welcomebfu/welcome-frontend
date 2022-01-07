@@ -1,52 +1,47 @@
 <template>
   <div>
-    <div class="container">
-      <template v-if="dataLoaded">
+    <template v-if="!showLoading">
+      <div v-if="!showLoading" class="container">
         <div class="description">
           <h1>Маршрут {{ guide.attributes.title }}</h1>
           <p>{{ guide.attributes.description }}</p>
         </div>
         <accordion>
           <accordion-item v-for="(point, index) in getPoints" :key="point.id">
-            <!-- This slot will handle the title/header of the accordion and is the part you click on -->
             <template slot="accordion-trigger">
               <h3>{{ index + 1 }} {{ point.name }}</h3>
             </template>
-            <!-- This slot will handle all the content that is passed to the accordion -->
             <template slot="accordion-content">
-              <span v-html="convertText(point.text)"></span>
+              <span v-html="convertText(point.text)" />
             </template>
           </accordion-item>
         </accordion>
-      </template>
-      <template v-else>
-        <h1>Загрузка</h1>
-      </template>
-    </div>
-    <div class="map" v-html="getEmbed"></div>
-
-    <div class="container maps" v-if="dataLoaded">
-      <h2>Посмотреть маршрут в других картах:</h2>
-      <div class="maps-links">
-        <vs-button
-          class="maps-item"
-          border
-          blank
-          :href="guide.attributes.yandex"
-        >
-          Яндекс.Карты
-        </vs-button>
-        <vs-button
-          class="maps-item"
-          border
-          blank
-          :href="guide.attributes.twogis"
-        >
-          2GIS
-        </vs-button>
       </div>
-    </div>
+      <div class="map" v-html="getEmbed" />
 
+      <div class="container maps">
+        <h2>Посмотреть маршрут в других картах:</h2>
+        <div class="maps-links">
+          <vs-button
+            class="maps-item"
+            border
+            blank
+            :href="guide.attributes.yandex"
+          >
+            Яндекс.Карты
+          </vs-button>
+          <vs-button
+            class="maps-item"
+            border
+            blank
+            :href="guide.attributes.twogis"
+          >
+            2GIS
+          </vs-button>
+        </div>
+      </div>
+    </template>
+    <Loading v-if="showLoading" />
   </div>
 </template>
 
@@ -79,6 +74,9 @@ export default {
         return this.guide.attributes.mapEmbed
       }
       return ''
+    },
+    showLoading () {
+      return this.$fetchState.pending
     }
   },
   methods: {
@@ -90,11 +88,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
 .description {
   padding: 10px;
 }
@@ -123,10 +116,6 @@ img {
   font-weight: 600;
 }
 @media (max-width: 500px) {
-  .container {
-    width: 100%;
-    grid-template-columns: 1fr
-  }
   p {
     text-align: justify;
     padding: 0 10px;

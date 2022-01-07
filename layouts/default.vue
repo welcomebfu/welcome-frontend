@@ -3,7 +3,9 @@
     <Header
       :page="$nuxt.$route.path"
     />
-    <Nuxt class="content" />
+    <div class="content">
+      <Nuxt />
+    </div>
     <Footer />
   </div>
 </template>
@@ -17,5 +19,6 @@ export default {
 .content {
   width: 100%;
   padding-top: 60px;
+  min-height: 100vh;
 }
 </style>
