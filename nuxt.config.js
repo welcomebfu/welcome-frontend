@@ -1,3 +1,4 @@
+require('dotenv').config()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -57,8 +58,8 @@ export default {
     optimizeImagesInDev: true,
     webp: {
       preset: 'default',
-      quality: 75,
-    },
+      quality: 75
+    }
   },
   googleFonts: {
     prefetch: true,
@@ -68,7 +69,7 @@ export default {
   },
 
   strapi: {
-    url: process.env.API_URL + 'api' || "http://localhost:1337",
+    url: process.env.API_URL + 'api' || 'http://localhost:1337',
     entities: ['guides']
   },
 
@@ -79,7 +80,7 @@ export default {
     '@nuxtjs/strapi'
   ],
   env: {
-    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
+    strapiBaseUri: process.env.API_URL || 'http://localhost:1337'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

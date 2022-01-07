@@ -1,6 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Маршруты по области пока в разработке)</h1>
+    <nuxt-link to="/kaliningrad">
+      Вернуться к маршрутам по Калининграду
+    </nuxt-link>
   </div>
 </template>
 
@@ -20,6 +23,9 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  text-align: center;
+}
 .list {
   margin: 0 auto;
   width: 1000px;
