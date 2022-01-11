@@ -8,7 +8,16 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Маршруты от Welcome центра БФУ им.Канта' },
       { name: 'format-detection', content: 'telephone=no' },
-      { name: 'theme-color', content: '#00b4d8' }
+      { name: 'theme-color', content: '#00b4d8' },
+      { hid: 'og:title', property: 'og:title', name: 'og:title', content: 'Welcome' },
+      { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/icon.png' },
+      { hid: 'og:site_name', property: 'og:site_name', name: 'og:site_name', content: 'Welcome-центр БФУ им.Канта' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        name: 'og:site_name',
+        content: 'Маршруты для самостоятельного исследования'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -41,7 +50,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    ['@nuxtjs/eslint-module', { fix: true }],
     '@nuxtjs/google-fonts',
     'nuxt-compress',
     '@aceforth/nuxt-optimized-images',

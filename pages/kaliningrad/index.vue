@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <h1>Маршруты по Калининграду</h1>
-    <div class="list">
-      <div v-if="$fetchState.pending" class="loading">
-        <DiamondLoading />
-      </div>
+  <div class="container">
+    <h1>
+      Маршруты по Калининграду
+    </h1>
+    <div v-if="!showLoading" class="list">
       <Card
         v-for="guide in guides"
-        :key="guide.id"
         :id="guide.id"
+        :key="guide.id"
         :guide="guide.attributes"
-        v-else
       />
     </div>
+    <Loading v-if="showLoading" />
   </div>
 </template>
 
@@ -30,6 +29,9 @@ export default {
   computed: {
     getGuides () {
       return this.guides.data
+    },
+    showLoading () {
+      return this.$fetchState.pending
     }
   },
   methods: {
@@ -43,8 +45,6 @@ export default {
 
 <style scoped>
 .list {
-  margin: 0 auto;
-  width: 1000px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;

@@ -13,3 +13,16 @@ h1 {
   margin: 40px 0 80px;
   font-size: 36px;
 }
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr
+  }
+}
