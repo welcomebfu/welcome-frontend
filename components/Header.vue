@@ -20,7 +20,7 @@
         По области
       </vs-navbar-item>
       <template #right>
-        <vs-button color="#fff" border>
+        <vs-button color="#fff" border @click="randomGuide">
           Случайный маршрут!
         </vs-button>
       </template>
@@ -44,7 +44,13 @@
 
 <script>
 export default {
-  props: ['page']
+  props: ['page'],
+  methods: {
+    randomGuide () {
+      const id = this.$store.getters['guides/randomGuideId']
+      this.$router.push('/kaliningrad/' + id)
+    }
+  }
 }
 </script>
 
