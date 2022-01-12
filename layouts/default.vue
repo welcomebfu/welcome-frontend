@@ -18,7 +18,12 @@ export default {
 <style>
 .content {
   width: 100%;
-  padding-top: 60px;
+  padding-top: 44px;
   min-height: 100vh;
+}
+@media (max-width: 632px) {
+  .content {
+    padding-top: 88px;
+  }
 }
 </style>

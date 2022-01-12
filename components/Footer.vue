@@ -34,6 +34,7 @@
 
 <style scoped>
 .footer {
+  width: 100%;
   padding: 60px 0;
   display: flex;
   flex-direction: column;

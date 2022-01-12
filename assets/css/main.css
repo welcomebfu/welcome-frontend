@@ -8,10 +8,16 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
+.page-title {
   text-align: center;
-  margin: 40px 0 80px;
+  margin: 100px 0;
   font-size: 36px;
+}
+
+@media (max-width: 632px) {
+  .page-title {
+    margin: 130px 0;
+  }
 }
 
 .container {
@@ -20,9 +26,8 @@ h1 {
   text-align: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .container {
     width: 100%;
-    grid-template-columns: 1fr
   }
 }
