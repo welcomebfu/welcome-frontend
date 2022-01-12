@@ -3,7 +3,9 @@
     <template v-if="!showLoading">
       <div v-if="!showLoading" class="container">
         <div class="description">
-          <h1>Маршрут {{ guide.attributes.title }}</h1>
+          <h1 class="page-title">
+            Маршрут {{ guide.attributes.title }}
+          </h1>
           <p>{{ guide.attributes.description }}</p>
         </div>
         <accordion>

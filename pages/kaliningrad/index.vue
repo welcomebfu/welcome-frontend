@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>
+    <h1 class="page-title">
       Маршруты по Калининграду
     </h1>
     <div v-if="!showLoading" class="list">
@@ -44,7 +44,11 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  padding: 60px 0;
+}
 .list {
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -54,12 +58,11 @@ export default {
 
 @media (max-width: 1000px) {
   .list {
-    width: 100%;
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 730px) {
+@media (max-width: 700px) {
   .list {
     width: 100%;
     grid-template-columns: 1fr;
