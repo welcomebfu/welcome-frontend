@@ -24,5 +24,9 @@ export const getters = {
   },
   getById (state) {
     return id => state.guides.find(guide => guide.id === id)
+  },
+  randomGuideId (state) {
+    const ids = state.guides.map(guide => guide.id)
+    return ids[Math.floor(Math.random() * ids.length)]
   }
 }
