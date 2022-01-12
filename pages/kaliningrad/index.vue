@@ -23,8 +23,8 @@ export default {
     }
   },
   async fetch () {
-    const res = await this.$strapi.$guides.find({ populate: '*' })
-    this.guides = res.data
+    await this.$store.dispatch('guides/fetch')
+    this.guides = this.$store.getters['guides/getAll']
   },
   computed: {
     getGuides () {

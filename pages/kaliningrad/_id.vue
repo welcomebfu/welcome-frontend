@@ -62,9 +62,11 @@ export default {
     }
   },
   async fetch () {
-    const id = this.$route.params.id
-    const res = await this.$strapi.$guides.findOne(id, { populate: '*' })
-    this.guide = res.data
+    const id = parseInt(this.$route.params.id)
+    if (!this.$store.getters['guides/isDataLoaded']) {
+      await this.$store.dispatch('guides/fetch')
+    }
+    this.guide = this.$store.getters['guides/getById'](id)
     this.dataLoaded = true
   },
   computed: {
